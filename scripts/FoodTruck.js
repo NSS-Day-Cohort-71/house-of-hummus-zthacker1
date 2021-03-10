@@ -1,7 +1,8 @@
+import { Sides } from "./SideDishes.js"
 
 export const FoodTruck = () => {
     return `
-        <h1>Kneel Diamonds</h1>
+        <h1>Laura Kathryn's House of Hummus</h1>
 
         <article class="choices">
             <section class="choices__metals options">
@@ -13,8 +14,8 @@ export const FoodTruck = () => {
 
             </section>
             <section class="choices__styles options">
-                <h2>Protein</h2>
-
+                <h2>Sides</h2>
+                ${Sides()}
             </section>
         </article>
 
@@ -24,7 +25,7 @@ export const FoodTruck = () => {
 
         <article class="customOrders">
             <h2>Custom Jewelry Orders</h2>
-            ${Orders()}
+
         </article>
     `
 }

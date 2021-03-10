@@ -1,5 +1,5 @@
 const database = {
-    dishes: [
+    entrees: [
         { id: 1, name: "Hummus and Hot Sauce", price: 6.00 },
         { id: 2, name: "Chicken Fried Lamb Kabob", price: 14.25 },
         { id: 3, name: "Hot Chicken Greek Salad", price: 10.50 },
@@ -22,12 +22,12 @@ const database = {
         { id: 8, type: "Fried Green Tomatoes", price: 3638 }
     ],
     sides: [
-        { id: 1, metal: "Chicken Fried Steak", price: 12.45 },
-        { id: 2, metal: "Bacon", price: 2.95 },
-        { id: 3, metal: "Turkey Leg", price: 8.80 },
-        { id: 4, metal: "Ribs", price: 9.25 },
-        { id: 5, metal: "Catfish", price: 7.75 },
-        { id: 6, metal: "Souvlaki", price: 10.20 }
+        { id: 1, title: "Chicken Fried Steak", price: 12.45 },
+        { id: 2, title: "Bacon", price: 2.95 },
+        { id: 3, title: "Turkey Leg", price: 8.80 },
+        { id: 4, title: "Ribs", price: 9.25 },
+        { id: 5, title: "Catfish", price: 7.75 },
+        { id: 6, title: "Souvlaki", price: 10.20 }
     ],
     purchases: [],
     comboChoices: {},
@@ -35,6 +35,18 @@ const database = {
 
 export const getPurchases = () => {
     return database.orderBuilder
+}
+
+export const getEntrees = () => {
+    return [...database.entrees]
+}
+
+export const getVeggies = () => {
+    return [...database.veggies]
+}
+
+export const getSides = () => {
+    return [...database.sides]
 }
 
 export const addPurchase = () => {
