@@ -1,4 +1,4 @@
-import { getSides } from "./database.js"
+import { getSides, setSide } from "./database.js"
 
 const sideDishes = getSides()
 
@@ -6,7 +6,7 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "sideDish") {
-            setSize(parseInt(event.target.value))
+            setSide(parseInt(event.target.value))
         }
     }
 )

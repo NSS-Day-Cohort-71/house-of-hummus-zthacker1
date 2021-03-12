@@ -1,22 +1,22 @@
-import { getSizes, setSize } from "./database.js"
+import { getVeggies, setVeggie } from "./database.js"
 
-const metals = getSizes()
+const veggies = getVeggies()
 
 document.addEventListener(
     "change",
     (event) => {
-        if (event.target.name === "size") {
-            setSize(parseInt(event.target.value))
+        if (event.target.name === "vegetable") {
+            setVeggie(parseInt(event.target.value))
         }
     }
 )
 
-export const DiamondSizes = () => {
+export const Veggies = () => {
     let html = "<ul>"
 
-    const listItems = metals.map(size => {
+    const listItems = veggies.map(vegetable => {
         return `<li>
-            <input type="radio" name="size" value="${size.id}" /> ${size.carets}
+            <input type="radio" name="vegetable" value="${vegetable.id}" /> ${vegetable.type}
         </li>`
     })
 

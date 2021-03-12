@@ -1,22 +1,22 @@
-import { getSizes, setSize } from "./database.js"
+import { getEntrees, setEntree } from "./database.js"
 
-const metals = getSizes()
+const entrees = getEntrees()
 
 document.addEventListener(
     "change",
     (event) => {
-        if (event.target.name === "size") {
-            setSize(parseInt(event.target.value))
+        if (event.target.name === "entree") {
+            setEntree(parseInt(event.target.value))
         }
     }
 )
 
-export const DiamondSizes = () => {
+export const Entrees = () => {
     let html = "<ul>"
 
-    const listItems = metals.map(size => {
+    const listItems = entrees.map(entree => {
         return `<li>
-            <input type="radio" name="size" value="${size.id}" /> ${size.carets}
+            <input type="radio" name="entree" value="${entree.id}" /> ${entree.name}
         </li>`
     })
 

@@ -12,14 +12,14 @@ const database = {
         { id: 10, name: "Pecan Pastitsio", price: 12.49 }
     ],
     veggies: [
-        { id: 1, type: "Okra", price: 405 },
-        { id: 2, type: "Collard Greens", price: 782 },
-        { id: 3, type: "Swiss Chard", price: 1470 },
-        { id: 4, type: "Corn", price: 1997 },
-        { id: 5, type: "Brussel Sprouts", price: 3638 },
-        { id: 6, type: "Sweet Potatoes", price: 3638 },
-        { id: 7, type: "Grits", price: 1258.9 },
-        { id: 8, type: "Fried Green Tomatoes", price: 3638 }
+        { id: 1, type: "Okra", price: 2.65 },
+        { id: 2, type: "Collard Greens", price: 2.05 },
+        { id: 3, type: "Swiss Chard", price: 2.15 },
+        { id: 4, type: "Corn", price: 1.75 },
+        { id: 5, type: "Brussel Sprouts", price: 3.00 },
+        { id: 6, type: "Sweet Potatoes", price: 2.40 },
+        { id: 7, type: "Grits", price: 3.05 },
+        { id: 8, type: "Fried Green Tomatoes", price: 3.89 }
     ],
     sides: [
         { id: 1, title: "Chicken Fried Steak", price: 12.45 },
@@ -33,8 +33,10 @@ const database = {
     comboChoices: {},
 }
 
+
+
 export const getPurchases = () => {
-    return database.orderBuilder
+    return [...database.purchases]
 }
 
 export const getEntrees = () => {
@@ -49,9 +51,23 @@ export const getSides = () => {
     return [...database.sides]
 }
 
+export const setSide = (id) => {
+    database.comboChoices.sideId = id
+}
+
+export const setEntree = (id) => {
+    database.comboChoices.entreeId = id
+}
+
+export const setVeggie = (id) => {
+    database.comboChoices.veggieId = id
+}
+
+
+
 export const addPurchase = () => {
     const newOrder = {...database.comboChoices}
-    newOrder.id = [...database.customOrders].pop().id + 1
+    newOrder.id = [...database.purchases].pop()?.id + 1 || 1
     database.purchases.push(newOrder)
 
     database.comboChoices = {}
