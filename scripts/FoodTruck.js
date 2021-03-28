@@ -21,15 +21,15 @@ export const FoodTruck = () => {
         </header>
 
         <article class="choices">
-            <section class="choices__metals options">
+            <section class="choices__base options">
                 <h2>Base Dish</h2>
                 ${Entrees()}
             </section>
-            <section class="choices__sizes options">
+            <section class="choices__veggies options">
                 <h2>Vegetable</h2>
                 ${Veggies()}
             </section>
-            <section class="choices__styles options">
+            <section class="choices__sides options">
                 <h2>Sides</h2>
                 ${Sides()}
             </section>
@@ -39,7 +39,7 @@ export const FoodTruck = () => {
             <button id="purchase">Purchase Combo</button>
         </article>
 
-        <article class="customOrders">
+        <article class="customerOrders">
             <h2>Monthly Sales</h2>
             ${Sales()}
         </article>

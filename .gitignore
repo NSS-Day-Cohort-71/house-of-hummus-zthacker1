@@ -8,3 +8,7 @@ obj
 *.sqlite3
 .vscode
 dist
+cypress/fixtures
+cypress/plugins
+cypress/support
+examples
