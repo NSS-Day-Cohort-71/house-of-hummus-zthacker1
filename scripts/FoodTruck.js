@@ -1,17 +1,11 @@
 import { addPurchase } from "./database.js"
-import { Entrees } from "./Entrees.js"
 import { Sales } from "./Sales.js"
-import { Sides } from "./SideDishes.js"
-import { Veggies } from "./Vegetables.js"
 
-document.addEventListener(
-    "click",
-    (event) => {
-        if (event.target.id === "purchase") {
-            addPurchase()
-        }
+document.addEventListener("click", (event) => {
+    if (event.target.id === "purchase") {
+
     }
-)
+})
 
 export const FoodTruck = () => {
     return `
@@ -19,21 +13,6 @@ export const FoodTruck = () => {
             <img src="./images/hummus.png" class="logo" />
             <h1 class="title">Laura Kathryn's House of Hummus</h1>
         </header>
-
-        <article class="choices">
-            <section class="choices__base options">
-                <h2>Base Dish</h2>
-                ${Entrees()}
-            </section>
-            <section class="choices__veggies options">
-                <h2>Vegetable</h2>
-                ${Veggies()}
-            </section>
-            <section class="choices__sides options">
-                <h2>Sides</h2>
-                ${Sides()}
-            </section>
-        </article>
 
         <article>
             <button id="purchase">Purchase Combo</button>
@@ -43,5 +22,6 @@ export const FoodTruck = () => {
             <h2>Monthly Sales</h2>
             ${Sales()}
         </article>
+
     `
 }

@@ -1,18 +1,13 @@
-import { getEntrees, getPurchases, getSides, getVeggies } from "./database.js"
+import { getVeggies } from "./database.js"
 
 const buildOrderListItem = (order) => {
     const veggies = getVeggies()
-    const entrees = getEntrees()
-    const sides = getSides()
 
-    const v = veggies.find(m => m.id === order.veggieId).price
-    const e = entrees.find(e => e.id === order.entreeId).price
-    const s = sides.find(s => s.id === order.sideId).price
 
-    const total = v + e + s
+    const total = veggiePrice + entreePrice + sidePrice
 
     return `<li>
-        Receipt #${order.id} = ${total.toLocaleString("en-US", {
+        Receipt #${order} = ${total.toLocaleString("en-US", {
             style: "currency",
             currency: "USD"
         })}
@@ -23,7 +18,12 @@ export const Sales = () => {
     const sales = getPurchases()
     return `
         <ul>
-            ${sales.map(buildOrderListItem).join("")}
+            ${sales.map(
+                (sale) => {
+                    // Reflect: What is the scope of this `return` keyword?
+                    return buildOrderListItem(sale)
+                }
+            ).join("")}
         </ul>
     `
 }
