@@ -8,6 +8,7 @@ document.addEventListener("change", (event) => {
     }
 })
 
+// Requirement: The radio input elements that this component funcion renders must all have a name of "sideDish"
 export const Sides = () => {
     let html = "<ul>"
 
