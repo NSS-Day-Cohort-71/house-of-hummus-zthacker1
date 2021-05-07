@@ -1,6 +1,6 @@
 describe('Test the display of all options', () => {
     it('Contains the main entrees', () => {
-        cy.visit('http://localhost:8080')
+        cy.visit('http://127.0.0.1:8080')
 
         cy.get(".choices__base").contains("Hummus and Hot Sauce")
         cy.get(".choices__base").contains("Chicken Fried Lamb Kabob")
@@ -15,7 +15,7 @@ describe('Test the display of all options', () => {
     })
 
     it('Contains the vegetable choices', () => {
-        cy.visit('http://localhost:8080')
+        cy.visit('http://127.0.0.1:8080')
 
         cy.get(".choices__veggies").contains("Okra")
         cy.get(".choices__veggies").contains("Collard Greens")
@@ -29,7 +29,7 @@ describe('Test the display of all options', () => {
     })
 
     it('Contains the side dishes', () => {
-        cy.visit('http://localhost:8080')
+        cy.visit('http://127.0.0.1:8080')
 
         cy.get(".choices__sides").contains("Chicken Fried Steak Poppers")
         cy.get(".choices__sides").contains("Bacon")
@@ -40,14 +40,23 @@ describe('Test the display of all options', () => {
     })
 })
 
+describe('Generated input fields', () => {
+    it('Has radio inputs with correct value', () => {
+        cy.get('input[name="entree"]')
+            .should('have.value', '1')
+    })
+})
+
+
 describe('Tests purchasing a full meal', () => {
     it('Records new purchases', () => {
-        cy.visit('http://localhost:8080')
+        cy.visit('http://127.0.0.1:8080')
 
         const baseOption = cy.get(".choices__base").contains("Hot Chicken Greek Salad")
-        cy.get('[name="entree"]').check("2")
-        cy.get('[name="vegetable"]').check("5")
-        cy.get('[name="sideDish"]').check("3")
+
+        cy.get('input[name="entree"]').check("2")
+        cy.get('input[name="vegetable"]').check("5")
+        cy.get('input[name="sideDish"]').check("3")
         const purchaseButton = cy.get("#purchase")
 
         purchaseButton.click()
@@ -55,25 +64,22 @@ describe('Tests purchasing a full meal', () => {
                 cy.get(".customerOrders").contains("Receipt #1 =")
             })
             .then(() => {
-                cy.get('[name="entree"]').check("8")
-                cy.get('[name="vegetable"]').check("7")
-                cy.get('[name="sideDish"]').check("2")
+                cy.get('input[name="entree"]').check("8")
+                cy.get('input[name="vegetable"]').check("7")
+                cy.get('input[name="sideDish"]').check("2")
             })
             .then(() => cy.get("#purchase").click())
             .then(() => {
                 cy.get(".customerOrders").contains("Receipt #2 =")
             })
             .then(() => {
-                cy.get('[name="entree"]').check("1")
-                cy.get('[name="vegetable"]').check("1")
-                cy.get('[name="sideDish"]').check("1")
+                cy.get('input[name="entree"]').check("1")
+                cy.get('input[name="vegetable"]').check("1")
+                cy.get('input[name="sideDish"]').check("1")
             })
             .then(() => cy.get("#purchase").click())
             .then(() => {
                 cy.get(".customerOrders").contains("Receipt #3 =")
             })
-
-
     })
 })
-
