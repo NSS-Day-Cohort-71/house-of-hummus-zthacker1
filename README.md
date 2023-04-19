@@ -2,17 +2,12 @@
 
 This project will help you assess your ability to apply the JavaScript skills that you practiced in this book.
 
-1. Functions
-1. Modules
-1. Iteration
-1. Objects
-1. Arrays
 1. Handling browser generated events
-1. Generating custom events
-1. Handling custom events
-1. State management
-1. Displaying state as HTML
-1. User input with radio options
+2. Using async/await to interact with a web API
+3. Generating/handling custom events
+4. Transient and permanent state management
+5. Displaying state as HTML
+6. User input with radio options
 
 You will be building an application for a local food truck that offers food that is a fusion of American Southern and Greek cuisines.
 
