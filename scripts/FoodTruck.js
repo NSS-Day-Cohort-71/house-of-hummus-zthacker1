@@ -1,13 +1,8 @@
-import { addPurchase } from "./database.js"
 import { Sales } from "./Sales.js"
 
-document.addEventListener("click", (event) => {
-    if (event.target.id === "purchase") {
-
-    }
-})
-
 export const FoodTruck = () => {
+    const salesHTML = Sales()
+
     return `
         <header class="header">
             <img src="./images/hummus.png" class="logo" />
@@ -20,7 +15,7 @@ export const FoodTruck = () => {
 
         <article class="customerOrders">
             <h2>Monthly Sales</h2>
-            ${Sales()}
+            ${salesHTML}
         </article>
 
     `
