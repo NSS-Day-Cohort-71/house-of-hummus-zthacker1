@@ -27,7 +27,7 @@
         ```html
         Receipt #1 = $00.00
         ```
-   1. The user's choices should be cleared from the database state once the purchase is made.
+   1. The user's choices should be cleared from transient state once the purchase is made.
 
 ## Design
 
